@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101713">
+  <meta name="description" content="An offline-first strength training planner with 5×5, Starting Strength-inspired, and Push/Pull/Legs routines.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>IronStart — Workout Planner</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" data-nav="home" aria-label="IronStart home"><span class="brand-mark">IS</span><span>IRON<span class="accent-text">START</span><small>TRAIN WITH A PLAN</small></span></a>
+      <div class="status-stack"><span id="connectivityStatus" class="status-pill"><i></i> Checking</span><button class="icon-button" data-action="go-settings" aria-label="Settings" title="Settings">⚙</button></div>
+    </header>
+    <main id="viewRoot" class="view-root" aria-live="polite">
+      <div class="loading-card"><div class="spinner"></div><p>Loading your training plan…</p></div>
+    </main>
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button class="nav-item active" data-nav="home"><span class="nav-symbol">⌂</span><span>Home</span></button>
+      <button class="nav-item" data-nav="train"><span class="nav-symbol">▤</span><span>Train</span></button>
+      <button class="nav-item" data-nav="progress"><span class="nav-symbol">↗</span><span>Progress</span></button>
+      <button class="nav-item" data-nav="library"><span class="nav-symbol">☷</span><span>Library</span></button>
+      <button class="nav-item" data-nav="settings"><span class="nav-symbol">⚙</span><span>Settings</span></button>
+    </nav>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="confirmDialog" class="app-dialog"><form method="dialog"><h2 id="dialogTitle">Confirm</h2><p id="dialogText"></p><div class="dialog-actions"><button class="button button-secondary" value="cancel">Cancel</button><button id="dialogConfirm" class="button button-primary" value="confirm">Continue</button></div></form></dialog>
+  <input type="file" id="importFile" accept="application/json,.json" hidden>
+  <script src="./app.js" defer></script>
+</body>
+</html>
